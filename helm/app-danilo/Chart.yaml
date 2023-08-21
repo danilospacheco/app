@@ -1,0 +1,7 @@
+apiVersion: v1
+name: app-danilo
+version: v1.0
+description: chart app danilo devops
+maintainers: 
+  - name: Danilo Pacheco
+    email: Danilopacheco@telefonica.com

@@ -1,0 +1,26 @@
+apiVersion: apps/v1      
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: app-danilo
+  name: app-danilo
+  namespace: app-danilo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-danilo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: app-danilo
+    spec:
+      containers:
+      - image: danilospacheco/app-danilo:latest
+        name: nginx
+        imagePullPolicy: IfNotPresent # or Never
+        resources: {}
+status: {}
