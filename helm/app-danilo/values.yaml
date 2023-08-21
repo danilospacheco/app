@@ -2,7 +2,7 @@ image:
   repository: danilospacheco/app-danilo
   tag: latest
   imagePullPolicy: IfNotPresent
-replicaCount: 1
+replicaCount: 2
 service:
   type: NodePort
   port: 80
