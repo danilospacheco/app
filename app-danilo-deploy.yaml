@@ -7,7 +7,7 @@ metadata:
   name: app-danilo
   namespace: app-danilo
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: app-danilo
