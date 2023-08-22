@@ -29,3 +29,14 @@ Através do Helm também é possível efetuar o deploy
 helm upgrade --install app-danilo .
 Para remover: kubectl delete -f ../app --force
 
+---------------
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+watch kubectl get pods -n argocd
+kubectl port-forward svc/argocd-server -n argocd 8080:443 ou configurar o service como “NodePort”
+ 
+coletar a senha de acesso
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+
+
