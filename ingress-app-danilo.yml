@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - app-danilo-ingress.com
-    secretName: cafe-secret
+    secretName: app-danilo-ingress
   rules:
   - http:
       paths:
@@ -21,7 +21,7 @@ spec:
             name: app-danilo-svc
             port:
               number: 80
-      - path: /coffee
+      - path: /app-danilo-ingress
         pathType: Prefix
         backend:
           service:
