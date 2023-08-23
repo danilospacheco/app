@@ -1,6 +1,6 @@
 Neste processo utilizarei o ingress do nginx, também é possível utilizar outros, como Istio ou Traefik
 
-Procedimento ingress-nginx controller
+# Procedimento ingress-nginx controller
 
 Documentação de apoio:
 https://kubernetes.github.io/ingress-nginx/deploy/
@@ -10,8 +10,7 @@ kubectl apply -f ingress-controller-nginx.yaml
 Como eu não tenho um loadBalance para este procedimento, adicionei no campo “spec” a configuração externalIPs e assim utilizar o ip do meu cluster local como loadBalance.
 
 ---------------
-
-Procedimento Aplicação
+# Procedimento Aplicação
 
 Arquivo Dockerfile contendo as informações da imagem/aplicação.
 
@@ -32,7 +31,7 @@ helm upgrade --install app-danilo .
 Para remover: kubectl delete -f ../app --force
 
 ---------------
-
+# aAgoCD para monitorar/aplicar as alterações feita no git
 kubectl create namespace argocd
 kubectl apply -n argocd -f ArgoCD.yaml ou https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 watch kubectl get pods -n argocd
