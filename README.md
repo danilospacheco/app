@@ -31,7 +31,7 @@ helm upgrade --install app-danilo .
 Para remover: kubectl delete -f ../app --force
 
 ---------------
-# aAgoCD para monitorar/aplicar as alterações feita no git
+# ArgoCD para monitorar/aplicar as alterações realizadas no git
 kubectl create namespace argocd
 kubectl apply -n argocd -f ArgoCD.yaml ou https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 watch kubectl get pods -n argocd
