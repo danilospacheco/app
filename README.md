@@ -7,7 +7,7 @@ https://kubernetes.github.io/ingress-nginx/deploy/
 
 kubectl apply -f ingress-controller-nginx.yaml
 
-Como eu não tenho um loadBalance para este procedimento, adicionei no campo “spec” a configuração externalIPs e assim utilizar o ip do meu cluster local como loadBalance. Infelizmente eu não adicionei um alias/dns no meu /etc/hosts por falta de permissão no notebook.
+Como eu não tenho um loadBalance para este procedimento, adicionei no campo “spec” a configuração externalIPs e assim utilizar o ip do meu cluster local como loadBalance.
 
 ---------------
 
@@ -25,14 +25,16 @@ kubectl apply -f ../app
 Para remover: kubectl delete -f ../app --force
 
 
-Através do Helm também é possível efetuar o deploy
+Criei um helm chart para facilitar a gestão dos pacotes e implantação
+helm\app-danilo
+
 helm upgrade --install app-danilo .
 Para remover: kubectl delete -f ../app --force
 
 ---------------
 
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl apply -n argocd -f ArgoCD.yaml ou https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 watch kubectl get pods -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8080:443 ou configurar o service como “NodePort”
  
