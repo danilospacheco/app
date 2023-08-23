@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-ingress
+  namespace: argocd
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    #nginx.ingress.kubernetes.io/ssl-redirect: "false" 
+    meta.helm.sh/release-namespace: argocd
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
+        path: /argocd-server
+        pathType: Prefix
+  - http:      
+      paths:
+      - backend:
+          service:
+            name: argocd-server
+            port:
+              number: 443
+        path: /argocd-server
+        pathType: Prefix        
+status:
+  loadBalancer: {}       
